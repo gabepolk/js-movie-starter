@@ -1,15 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <title>URDB!</title>
 </head>
 <body>
-  <div class="main">
+
+  <div class="row">
+    <input class="search" type="text" name="input">
+  </div>
+  <div class="row">
+    <button id="enter-search" name="button">Search</button>
+  </div>
+
+  <div class="row">
+    <div class="main-movies"></div>
   </div>
 
   <script src="js/jquery-1.11.1.min.js"></script>
   <script src="js/handlebars-v1.3.0.js"></script>
+  <!-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"> -->
   <script type="text/javascript" src="../js/movies.js"></script>
 
   <script id="movie-release-template" type="text/x-handlebars-template">
@@ -23,7 +33,7 @@
   <script id="movie-detail-template" type="text/x-handlebars-template">
     <div class="movie-release">
       <h2 class="movie-title">{{ title }}</h2>
-      <h2 class="movie-tagline">{{ tagline }}</h2>
+      <h4 class="movie-tagline">{{ tagline }}</h2>
       <img class="movie-poster" src="http://image.tmdb.org/t/p/w185/{{ poster_path }}">
       <h4 class="movie-release-date">Release Date: {{ release_date }}</h4>
       <h4 class="movie-rating">Rating: {{ vote_average }}</h4>
@@ -31,7 +41,14 @@
     </div>
   </script>
 
+  <script id="search-results-template" type="text/x-handlebars-template">
+    <div class="movie-release">
+      <h2 class="movie-title">{{ title }}</h2>
+      <h4 class="movie-release-date">Release Date: {{ release_date }}</h4>
+      <h4 class="movie-rating">Rating: {{ vote_average }}</h4>
+      <img class="movie-poster" src="http://image.tmdb.org/t/p/w185/{{ poster_path }}">
+    </div>
+  </script>
+
 </body>
 </html>
-
-<!-- 85890c052e1f59ee8257fc442dd6066f -->
