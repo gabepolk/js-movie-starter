@@ -5,23 +5,19 @@
   <title>URDB!</title>
 </head>
 <body>
-  <div class="main"></div>
+  <div class="main">
+  </div>
+
   <script src="js/jquery-1.11.1.min.js"></script>
   <script src="js/handlebars-v1.3.0.js"></script>
+  <script type="text/javascript" src="../js/movies.js"></script>
 
-  <script>
-
-    $.get("https://api.themoviedb.org/3/movie/now_playing", { api_key: "85890c052e1f59ee8257fc442dd6066f" }, function(data){
-      $.each(data.results, function( index, value ) {
-        $(".main").append("<div>" +
-                            "<p>" + value.title + "</p>" +
-                            "<img src='http://image.tmdb.org/t/p/w185/" + value.poster_path + "' />" +
-                            "<p>Rating: " + value.vote_average + "</p>" +
-                          "</div>");
-        // console.log(value.title);
-      });
-    });
-
+  <script id="movie-release-template" type="text/x-handlebars-template">
+    <div class="movie-release">
+      <h2 class="movie-title">{{ title }}</h2>
+      <img class="movie-poster" src="http://image.tmdb.org/t/p/w185/{{ poster_path }}">
+      <h4 class="movie-rating">Rating: {{ vote_average }}</h4>
+    </div>
   </script>
 </body>
 </html>
