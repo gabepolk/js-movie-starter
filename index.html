@@ -13,12 +13,24 @@
   <script type="text/javascript" src="../js/movies.js"></script>
 
   <script id="movie-release-template" type="text/x-handlebars-template">
-    <div class="movie-release">
+    <div class="movie-release" data-id="{{ id }}">
       <h2 class="movie-title">{{ title }}</h2>
-      <img class="movie-poster" src="http://image.tmdb.org/t/p/w185/{{ poster_path }}">
-      <h4 class="movie-rating">Rating: {{ vote_average }}</h4>
+      <h4 class="movie-release-date">Release Date: {{ release_date }}</h4>
+      <h4 class="movie-rating">Vote Average: {{ vote_average }}</h4>
     </div>
   </script>
+
+  <script id="movie-detail-template" type="text/x-handlebars-template">
+    <div class="movie-release">
+      <h2 class="movie-title">{{ title }}</h2>
+      <h2 class="movie-tagline">{{ tagline }}</h2>
+      <img class="movie-poster" src="http://image.tmdb.org/t/p/w185/{{ poster_path }}">
+      <h4 class="movie-release-date">Release Date: {{ release_date }}</h4>
+      <h4 class="movie-rating">Rating: {{ vote_average }}</h4>
+      <a class="imdb-link" href="http://www.imdb.com/title/{{ imdb_id }}/">Check it out on IMDB</a>
+    </div>
+  </script>
+
 </body>
 </html>
 
