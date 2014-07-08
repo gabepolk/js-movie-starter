@@ -31,7 +31,7 @@
     };
 
     $("#enter-search").click(function(){
-      var query = $(".search").val();
+      var query = $("#search").val();
       $.ajax({
         type: "GET",
         url: "https://api.themoviedb.org/3/search/movie",
@@ -52,7 +52,8 @@
         }
       });
 
-    })
+    });
+
 
   });
 })()
