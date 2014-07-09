@@ -68,16 +68,20 @@
         </div>
       </script>
       <script id="search-results-template" type="text/x-handlebars-template">
-        <div class="row">
-          <div class="col-xs-4">
-            <img class="movie-poster" src="http://image.tmdb.org/t/p/w185/{{ poster_path }}">
+        {{#each movieList}}
+          <div class="movie" data-id="{{ id }}">
+            <div class="row">
+              <div class="col-xs-4">
+                <img class="movie-poster" src="http://image.tmdb.org/t/p/w185/{{ poster_path }}">
+              </div>
+              <div class="col-xs-8">
+                <h2 class="movie-title">{{ title }}</h2>
+                <h4 class="movie-release-date">Release Date: {{ release_date }}</h4>
+                <h4 class="movie-rating">Rating: {{ vote_average }}</h4>
+              </div>
+            </div>
           </div>
-          <div class="col-xs-8">
-            <h2 class="movie-title">{{ title }}</h2>
-            <h4 class="movie-release-date">Release Date: {{ release_date }}</h4>
-            <h4 class="movie-rating">Rating: {{ vote_average }}</h4>
-          </div>
-        </div>
+        {{/each}}
       </script>
     </div>
 

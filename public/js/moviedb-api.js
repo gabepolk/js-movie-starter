@@ -1,7 +1,6 @@
 define(function() {
 
   return {
-    whatever: "piece of cake",
     getNowPlaying: function(callback){
       $.ajax({
         type: "GET",
@@ -24,15 +23,14 @@ define(function() {
         }
       });
     },
-    getSearchResults: function(query){
+    getSearchResults: function(query, callback){
       $.ajax({
         type: "GET",
         url: "https://api.themoviedb.org/3/search/movie",
         data: { api_key: "85890c052e1f59ee8257fc442dd6066f", query: query },
         dataType: 'json',
         success: function(data){
-          var searchResultsArr = data.results
-          return searchResultsArr;
+          callback(data.results);
         }
       });
     }
