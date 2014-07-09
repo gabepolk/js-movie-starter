@@ -13,7 +13,7 @@ define(function() {
         }
       });
     },
-    getMovieDetail: function(callback){
+    getMovieDetail: function(id, callback){
       $.ajax({
         type: "GET",
         url: "https://api.themoviedb.org/3/movie/" + id,

@@ -8,23 +8,19 @@ requirejs.config({
   }
 });
 
-require(['moviedb-api', 'render-template'], function(moviedbAPI, renderTemplate) {
-  $(document).ready(function(){
+require(['moviedb-api', 'render-template'],
+  function(moviedbAPI, renderTemplate) {
+    $(document).ready(function(){
 
-    moviedbAPI.getNowPlaying(renderTemplate.renderNowPlaying);
+      moviedbAPI.getNowPlaying(renderTemplate.renderNowPlaying);
 
-    // $(document).click(".movie", function(){
-    //   moviedbAPI.getmoviedetails($(this).data('id'))
-    // });
+      $(document).click(".movie", function(){
+        moviedbAPI.getMovieDetail($(".movie").attr("data-id"), renderTemplate.renderMovieDetail)
+      });
 
-  });
-});
-
-// require(['render-template'], function(renderTemplate) {
-//   console.log(renderTemplate.whatever);
-//   // renderTemplate.renderNowPlaying();
-// })
-
+    });
+  }
+);
 
 // (function(){
 //   $(document).ready(function(){

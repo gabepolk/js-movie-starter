@@ -38,8 +38,8 @@
     <div id="templates">
       <script id="movie-release-template" type="text/x-handlebars-template">
         {{#each movieList}}
-          <div class="movie">
-            <div class="row" data-id="{{ id }}">
+          <div class="movie" data-id="{{ id }}">
+            <div class="row">
                 <div class="col-xs-4">
                   <img class="movie-poster" src="http://image.tmdb.org/t/p/w185/{{ poster_path }}">
                 </div>
@@ -53,18 +53,6 @@
           </div>
         {{/each}}
       </script>
-         <!--  <div class="movie">
-            <div class="row" data-id="{{ id }}">
-              <div class="col-xs-4">
-                <img class="movie-poster" src="http://image.tmdb.org/t/p/w185/{{ poster_path }}">
-              </div>
-              <div class=".col-xs-8">
-                <h2 class="movie-title">{{ title }}</h2>
-                <h4 class="movie-release-date">Release Date: {{ release_date }}</h4>
-                <h4 class="movie-rating">Vote Average: {{ vote_average }}</h4>
-              </div>
-            </div>
-          </div> -->
       <script id="movie-detail-template" type="text/x-handlebars-template">
         <div class="row">
           <div class="col-xs-4">
