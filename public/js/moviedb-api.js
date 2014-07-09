@@ -2,20 +2,25 @@ define(function() {
 
   return {
     whatever: "piece of cake",
-    getNowPlaying: function(){
-      $.get("https://api.themoviedb.org/3/movie/now_playing", { api_key: "85890c052e1f59ee8257fc442dd6066f" }, function(data){
-        var nowPlayingArr = data.results
-        return nowPlayingArr;
+    getNowPlaying: function(callback){
+      $.ajax({
+        type: "GET",
+        url: "https://api.themoviedb.org/3/movie/now_playing",
+        data: { api_key: "85890c052e1f59ee8257fc442dd6066f" },
+        dataType: 'json',
+        success: function(data){
+          callback(data.results);
+        }
       });
     },
-    getMovieDetail: function(){
+    getMovieDetail: function(callback){
       $.ajax({
         type: "GET",
         url: "https://api.themoviedb.org/3/movie/" + id,
         data: { api_key: "85890c052e1f59ee8257fc442dd6066f" },
         dataType: 'json',
         success: function(movieDetail){
-          return movieDetail;
+          callback(movieDetail);
         }
       });
     },
@@ -33,5 +38,3 @@ define(function() {
     }
   };
 });
-
-
